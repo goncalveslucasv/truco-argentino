@@ -15,14 +15,6 @@ namespace be
             set { nombre = value; }
         }
 
-        private string contraseña;
-
-        public string Contraseña
-        {
-            get { return contraseña; }
-            set { contraseña = value; }
-        }
-
         private int puntaje;
 
         public int Puntaje
@@ -31,12 +23,18 @@ namespace be
             set { puntaje = value; }
         }
 
-        private List<Carta> Cartas;
+        private List<Carta> cartas;
 
-        public List<Carta> cartas
+        public List<Carta> Cartas
         {
-            get { return Cartas; }
-            set { Cartas = value; }
+            get { return cartas; }
+            set { cartas = value; }
+        }
+
+        public Jugador(string Nombre)
+        {
+            this.nombre = Nombre;
+
         }
 
 

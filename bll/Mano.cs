@@ -7,5 +7,15 @@ namespace bll
 {
     public class Mano
     {
+        public static List<be.Mano> crearManos()
+        {
+            List<be.Mano> manos = new List<be.Mano>();
+            manos.Add(new be.Mano());
+            manos.Add(new be.Mano());
+            manos.Add(new be.Mano());
+            return manos;
+        }
+
+
     }
 }

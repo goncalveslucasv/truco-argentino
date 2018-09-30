@@ -8,11 +8,13 @@ namespace bll
 {
     public class Truco
     {
-        public void IniciarJuego()
-        {
-            Truco truco = new Truco();
-            truco.IniciarJuego();
+        private be.Truco truco;
+        private be.Partida partida;
 
+        public be.Partida IniciarJuego(List<be.Jugador> jugadores)
+        {
+           be.Truco truco = new be.Truco();
+           return new be.Partida(jugadores);
         }
 
         public be.Mazo CrearMazo()

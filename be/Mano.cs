@@ -7,5 +7,13 @@ namespace be
 {
     public class Mano
     {
+        private List<be.Jugador> jugadores = new List<Jugador>();
+
+        public List<be.Jugador> Jugadores
+        {
+            get { return jugadores; }
+            set { jugadores = value; }
+        }
+
     }
 }

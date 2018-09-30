@@ -1,5 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Test
 {
@@ -7,13 +11,20 @@ namespace Test
     public class Truco
     {
         be.Truco truco;
+        be.Partida partida;
+        List<be.Jugador> jugadores = new List<be.Jugador>();
         be.Ronda ronda;
+
 
         [TestMethod]
         public void IniciarPartidaDeTruco()
         {
             bll.Truco trucoLogica = new bll.Truco();
-            be.Partida partida = trucoLogica.IniciarPartida(List < be.Jugador > jugadores);
+
+            jugadores.Add(new be.Jugador("Pedro"));
+            jugadores.Add(new be.Jugador("Juan"));
+
+            partida = trucoLogica.IniciarJuego(jugadores);
 
             Assert.IsInstanceOfType(partida, typeof(be.Partida));
         }
@@ -21,14 +32,14 @@ namespace Test
         [TestMethod]
         public void CrearRonda()
         {
+            jugadores.Add(new be.Jugador("Pedro"));
+            jugadores.Add(new be.Jugador("Juan"));
 
+            be.Partida partida = new be.Partida(jugadores);
             bll.Ronda rondaLogica = new bll.Ronda();
-            ronda = rondaLogica.crearRonda();
+            ronda = rondaLogica.CrearRonda(partida);
 
             Assert.IsInstanceOfType(ronda, typeof(be.Ronda));
-            Assert.IsInstanceOfType(ronda.Mano[0], typeof(be.Mano));
-            Assert.IsInstanceOfType(ronda.Mano[1], typeof(be.Mano));
-            Assert.IsInstanceOfType(ronda.Mano[2], typeof(be.Mano));
 
         }
 
@@ -36,16 +47,19 @@ namespace Test
         public void RepartirCartas()
         {
 
+            jugadores.Add(new be.Jugador("Pedro"));
+            jugadores.Add(new be.Jugador("Juan"));
+
             bll.Ronda rondaLogica = new bll.Ronda();
-            be.Mano mano = rondaLogica.repartirCartas(be.Mano mano);
+            be.Mano mano = rondaLogica.RepartirCartas(jugadores, ronda.Manos[0]);
 
-            Assert.IsInstanceOfType(mano.Jugador[0].Carta[0], typeof(be.Carta));
-            Assert.IsInstanceOfType(mano.Jugador[0].Carta[1], typeof(be.Carta));
-            Assert.IsInstanceOfType(mano.Jugador[0].Carta[2], typeof(be.Carta));
+            Assert.IsInstanceOfType(mano.Jugadores[0].Cartas[0], typeof(be.Carta));
+            Assert.IsInstanceOfType(mano.Jugadores[0].Cartas[1], typeof(be.Carta));
+            Assert.IsInstanceOfType(mano.Jugadores[0].Cartas[2], typeof(be.Carta));
 
-            Assert.IsInstanceOfType(mano.Jugador[1].Carta[0], typeof(be.Carta));
-            Assert.IsInstanceOfType(mano.Jugador[1].Carta[1], typeof(be.Carta));
-            Assert.IsInstanceOfType(mano.Jugador[1].Carta[2], typeof(be.Carta));
+            Assert.IsInstanceOfType(mano.Jugadores[1].Cartas[0], typeof(be.Carta));
+            Assert.IsInstanceOfType(mano.Jugadores[1].Cartas[1], typeof(be.Carta));
+            Assert.IsInstanceOfType(mano.Jugadores[1].Cartas[2], typeof(be.Carta));
         }
 
         [TestMethod]
