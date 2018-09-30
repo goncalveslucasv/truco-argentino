@@ -1,0 +1,6 @@
+C:\Users\casVicente.Goncalves\Desktop\Truco\be\bin\Debug\be.dll
+C:\Users\casVicente.Goncalves\Desktop\Truco\be\bin\Debug\be.pdb
+C:\Users\casVicente.Goncalves\Desktop\Truco\be\obj\Debug\be.csprojResolveAssemblyReference.cache
+C:\Users\casVicente.Goncalves\Desktop\Truco\be\obj\Debug\be.csproj.CoreCompileInputs.cache
+C:\Users\casVicente.Goncalves\Desktop\Truco\be\obj\Debug\be.dll
+C:\Users\casVicente.Goncalves\Desktop\Truco\be\obj\Debug\be.pdb

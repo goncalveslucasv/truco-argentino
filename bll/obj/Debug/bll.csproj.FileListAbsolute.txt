@@ -1,0 +1,11 @@
+C:\Users\casVicente.Goncalves\Desktop\Truco\bll\bin\Debug\bll.dll
+C:\Users\casVicente.Goncalves\Desktop\Truco\bll\bin\Debug\bll.pdb
+C:\Users\casVicente.Goncalves\Desktop\Truco\bll\bin\Debug\be.dll
+C:\Users\casVicente.Goncalves\Desktop\Truco\bll\bin\Debug\dal.dll
+C:\Users\casVicente.Goncalves\Desktop\Truco\bll\bin\Debug\be.pdb
+C:\Users\casVicente.Goncalves\Desktop\Truco\bll\bin\Debug\dal.pdb
+C:\Users\casVicente.Goncalves\Desktop\Truco\bll\obj\Debug\bll.csprojResolveAssemblyReference.cache
+C:\Users\casVicente.Goncalves\Desktop\Truco\bll\obj\Debug\bll.csproj.CoreCompileInputs.cache
+C:\Users\casVicente.Goncalves\Desktop\Truco\bll\obj\Debug\bll.csproj.CopyComplete
+C:\Users\casVicente.Goncalves\Desktop\Truco\bll\obj\Debug\bll.dll
+C:\Users\casVicente.Goncalves\Desktop\Truco\bll\obj\Debug\bll.pdb

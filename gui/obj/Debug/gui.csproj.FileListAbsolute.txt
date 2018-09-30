@@ -1,0 +1,14 @@
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\gui.exe.config
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\gui.exe
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\gui.pdb
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\be.dll
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\bll.dll
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\be.pdb
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\bll.pdb
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.csprojResolveAssemblyReference.cache
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.Properties.Resources.resources
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.csproj.GenerateResource.cache
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.csproj.CoreCompileInputs.cache
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.csproj.CopyComplete
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.exe
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.pdb
