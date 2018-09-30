@@ -13,7 +13,7 @@ namespace Test
         public void IniciarPartidaDeTruco()
         {
             bll.Truco trucoLogica = new bll.Truco();
-            be.Partida partida = trucoLogica.IniciarPartida(List<be.Jugador> jugadores);
+            be.Partida partida = trucoLogica.IniciarPartida(List < be.Jugador > jugadores);
 
             Assert.IsInstanceOfType(partida, typeof(be.Partida));
         }
@@ -35,12 +35,27 @@ namespace Test
         [TestMethod]
         public void RepartirCartas()
         {
-        
+
             bll.Ronda rondaLogica = new bll.Ronda();
-            rondaLogica.repartirCartas(be.Mano mano);
+            be.Mano mano = rondaLogica.repartirCartas(be.Mano mano);
+
+            Assert.IsInstanceOfType(mano.Jugador[0].Carta[0], typeof(be.Carta));
+            Assert.IsInstanceOfType(mano.Jugador[0].Carta[1], typeof(be.Carta));
+            Assert.IsInstanceOfType(mano.Jugador[0].Carta[2], typeof(be.Carta));
+
+            Assert.IsInstanceOfType(mano.Jugador[1].Carta[0], typeof(be.Carta));
+            Assert.IsInstanceOfType(mano.Jugador[1].Carta[1], typeof(be.Carta));
+            Assert.IsInstanceOfType(mano.Jugador[1].Carta[2], typeof(be.Carta));
+        }
+
+        [TestMethod]
+        public void TirarCarta()
+        { 
 
 
 
         }
+
+
     }
 }
