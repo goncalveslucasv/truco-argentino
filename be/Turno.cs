@@ -7,5 +7,13 @@ namespace be
 {
     public class Turno
     {
+        private be.Jugador jugador;
+
+        public be.Jugador Jugador
+        {
+            get { return jugador; }
+            set { jugador = value; }
+        }
+
     }
 }

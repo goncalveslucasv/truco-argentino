@@ -7,6 +7,14 @@ namespace be
 {
     public class Jugador
     {
+        private be.Carta cartaJugada;
+
+        public be.Carta CartaJugada
+        {
+            get { return cartaJugada; }
+            set { cartaJugada = value; }
+        }
+
         private string nombre;
 
         public string Nombre
@@ -23,7 +31,7 @@ namespace be
             set { puntaje = value; }
         }
 
-        private List<Carta> cartas;
+        private List<Carta> cartas = new List<Carta>();
 
         public List<Carta> Cartas
         {

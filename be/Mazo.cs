@@ -7,9 +7,9 @@ namespace be
 {
     public class Mazo
     {
-        private List<Carta> cartas;
+        private List<be.Carta> cartas = new List<be.Carta>();
 
-        public List<Carta> Cartas
+        public List<be.Carta> Cartas
         {
             get { return cartas; }
             set { cartas = value; }

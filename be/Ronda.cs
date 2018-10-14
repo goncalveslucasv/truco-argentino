@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace be
 {
     public class Ronda
-    {
+    {   
         private List<be.Mano> manos;
 
         public List<be.Mano> Manos

@@ -15,16 +15,15 @@ namespace Test
         List<be.Jugador> jugadores = new List<be.Jugador>();
         be.Ronda ronda;
 
-
         [TestMethod]
         public void IniciarPartidaDeTruco()
         {
-            bll.Truco trucoLogica = new bll.Truco();
+            bll.Truco trucoServices = new bll.Truco();
 
             jugadores.Add(new be.Jugador("Pedro"));
             jugadores.Add(new be.Jugador("Juan"));
 
-            partida = trucoLogica.IniciarJuego(jugadores);
+            partida = trucoServices.IniciarJuego(jugadores);
 
             Assert.IsInstanceOfType(partida, typeof(be.Partida));
         }
@@ -36,38 +35,60 @@ namespace Test
             jugadores.Add(new be.Jugador("Juan"));
 
             be.Partida partida = new be.Partida(jugadores);
-            bll.Ronda rondaLogica = new bll.Ronda();
-            ronda = rondaLogica.CrearRonda(partida);
+            bll.Ronda rondaServices = new bll.Ronda();
+            rondaServices.AsignarPartida(partida);
+            ronda = rondaServices.CrearRonda();
 
             Assert.IsInstanceOfType(ronda, typeof(be.Ronda));
 
         }
 
         [TestMethod]
-        public void RepartirCartas()
+        public void RepartirCartasTest()
         {
+            List<be.Jugador> jugadores = new List<be.Jugador>();
 
             jugadores.Add(new be.Jugador("Pedro"));
             jugadores.Add(new be.Jugador("Juan"));
 
-            bll.Ronda rondaLogica = new bll.Ronda();
-            be.Mano mano = rondaLogica.RepartirCartas(jugadores, ronda.Manos[0]);
+            be.Partida partida = new be.Partida(jugadores);
+            bll.Ronda rondaServices = new bll.Ronda();
+            rondaServices.AsignarPartida(partida);
+            ronda = rondaServices.CrearRonda();
 
-            Assert.IsInstanceOfType(mano.Jugadores[0].Cartas[0], typeof(be.Carta));
-            Assert.IsInstanceOfType(mano.Jugadores[0].Cartas[1], typeof(be.Carta));
-            Assert.IsInstanceOfType(mano.Jugadores[0].Cartas[2], typeof(be.Carta));
+            rondaServices.RepartirCartas(jugadores);
 
-            Assert.IsInstanceOfType(mano.Jugadores[1].Cartas[0], typeof(be.Carta));
-            Assert.IsInstanceOfType(mano.Jugadores[1].Cartas[1], typeof(be.Carta));
-            Assert.IsInstanceOfType(mano.Jugadores[1].Cartas[2], typeof(be.Carta));
+            Assert.IsInstanceOfType(jugadores[0].Cartas[0], typeof(be.Carta));
+            Assert.IsInstanceOfType(jugadores[0].Cartas[1], typeof(be.Carta));
+            Assert.IsInstanceOfType(jugadores[0].Cartas[2], typeof(be.Carta));
+            Assert.IsInstanceOfType(jugadores[1].Cartas[0], typeof(be.Carta));
+            Assert.IsInstanceOfType(jugadores[1].Cartas[1], typeof(be.Carta));
+            Assert.IsInstanceOfType(jugadores[1].Cartas[2], typeof(be.Carta));
         }
 
         [TestMethod]
         public void TirarCarta()
-        { 
+        {
+            List<be.Jugador> jugadores = new List<be.Jugador>();
+
+            jugadores.Add(new be.Jugador("Pedro"));
+            jugadores.Add(new be.Jugador("Juan"));
+
+            be.Partida partida = new be.Partida(jugadores);
+            bll.Ronda rondaServices = new bll.Ronda();
+            bll.Turno turnoServices = new bll.Turno();
+            rondaServices.AsignarPartida(partida);
+            ronda = rondaServices.CrearRonda();
+
+            be.Turno turno = turnoServices.cambiarTurno(new be.Turno(), jugadores[0]);
+            rondaServices.RepartirCartas(jugadores);
 
 
+            bll.Jugador jugadorServices = new bll.Jugador(jugadores);
+            jugadorServices.TirarCarta(jugadores[0], jugadores[0].Cartas[1], ronda.Manos[0]);
+            turnoServices.alternarTurno(turno, partida);
 
+            Assert.IsInstanceOfType(ronda.Manos[0].Jugadores[0].CartaJugada, typeof(be.Carta));
         }
 
 

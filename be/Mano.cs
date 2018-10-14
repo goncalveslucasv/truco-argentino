@@ -7,10 +7,10 @@ namespace be
 {
     public class Mano
     {
-        private List<be.Jugador> jugadores = new List<Jugador>();
+        private List<be.Jugador> jugadores = new List<be.Jugador>();
 
         public List<be.Jugador> Jugadores
-        {
+        {   
             get { return jugadores; }
             set { jugadores = value; }
         }

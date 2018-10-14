@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using be;
 
 namespace bll
 {
     public class Mazo
     {
-        static be.Mazo mazo;
-        static Mazo()
+        private be.Mazo mazoActual;
+
+        public Mazo(be.Mazo nuevoMazo)
         {
-            mazo = new be.Mazo();
+            mazoActual = nuevoMazo;
+            
         }
 
-        public static be.Carta darCarta()
+        public be.Carta darCarta()
         {
             Random random = new Random();
-            random.Next(20);
-            be.Carta carta = mazo.Cartas[int.Parse(random.ToString())];
-            mazo.Cartas.Remove(carta);
+            int index = random.Next(mazoActual.Cartas.Count);
+            be.Carta carta = mazoActual.Cartas[index];
+            mazoActual.Cartas.RemoveAt(index);
             return carta;
         }
     }

@@ -9,7 +9,14 @@ namespace bll
 {
     public class Ronda
     {
-        public be.Ronda CrearRonda(be.Partida partida)
+        private be.Partida partida;
+
+        public void AsignarPartida(be.Partida Partida)
+        {
+            partida = Partida;
+        }
+            
+        public be.Ronda CrearRonda()
         {
             be.Ronda ronda = new be.Ronda();
             ronda.Manos = bll.Mano.crearManos();
@@ -18,22 +25,20 @@ namespace bll
             return ronda;
         }
 
-        public be.Mano RepartirCartas(List<be.Jugador> jugadores, be.Mano mano)
+        public void RepartirCartas(List<be.Jugador> jugadores)
         {
-
-            mano.Jugadores = jugadores;
-            mano.Jugadores[0].Cartas.Add(bll.Mazo.darCarta());
-            mano.Jugadores[0].Cartas.Add(bll.Mazo.darCarta());
-            mano.Jugadores[0].Cartas.Add(bll.Mazo.darCarta());
-            mano.Jugadores[1].Cartas.Add(bll.Mazo.darCarta());
-            mano.Jugadores[1].Cartas.Add(bll.Mazo.darCarta());
-            mano.Jugadores[1].Cartas.Add(bll.Mazo.darCarta());
-
-            return mano;
+            bll.Mazo mazo = new bll.Mazo(new be.Mazo());
 
 
+            jugadores[0].Cartas.Add(mazo.darCarta());
+            jugadores[0].Cartas.Add(mazo.darCarta());
+            jugadores[0].Cartas.Add(mazo.darCarta());
+            jugadores[1].Cartas.Add(mazo.darCarta());
+            jugadores[1].Cartas.Add(mazo.darCarta());
+            jugadores[1].Cartas.Add(mazo.darCarta());
 
         }
+
 
 
 
