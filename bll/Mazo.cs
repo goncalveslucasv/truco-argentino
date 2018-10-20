@@ -18,11 +18,19 @@ namespace bll
 
         public be.Carta darCarta()
         {
-            Random random = new Random(DateTime.Now.Miliseconds);
+            Random random = new Random(generarSeed());
             int index = random.Next(mazoActual.Cartas.Count);
             be.Carta carta = mazoActual.Cartas[index];
             mazoActual.Cartas.RemoveAt(index);
             return carta;
+        }
+
+        private int generarSeed()
+        {
+            var guid = Guid.NewGuid();
+            var justNumbers = new String(guid.ToString().Where(Char.IsDigit).ToArray());
+            var seed = int.Parse(justNumbers.Substring(0, 4));
+            return seed;
         }
     }
 }
