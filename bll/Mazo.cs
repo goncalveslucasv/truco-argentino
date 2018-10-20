@@ -18,7 +18,7 @@ namespace bll
 
         public be.Carta darCarta()
         {
-            Random random = new Random();
+            Random random = new Random(DateTime.Now.Miliseconds);
             int index = random.Next(mazoActual.Cartas.Count);
             be.Carta carta = mazoActual.Cartas[index];
             mazoActual.Cartas.RemoveAt(index);
