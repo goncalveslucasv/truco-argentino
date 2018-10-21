@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Carta.cs" />
     <Compile Include="Jugador.cs" />
     <Compile Include="Mano.cs" />
     <Compile Include="Mazo.cs" />

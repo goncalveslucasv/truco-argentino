@@ -25,8 +25,27 @@ namespace bll
             return ronda;
         }
 
+        public void AsignarPuntos(List<be.Jugador> jugadores)
+        {
+            if (jugadores[0].ManosGanadas > jugadores[1].ManosGanadas)
+            {
+                jugadores[0].Puntaje = jugadores[0].Puntaje + 1;
+            } else
+            {
+                jugadores[1].Puntaje = jugadores[0].Puntaje + 1;
+
+            }
+        }
+
         public void RepartirCartas(List<be.Jugador> jugadores)
         {
+
+            jugadores[0].Cartas = null;
+            jugadores[1].Cartas = null;
+
+            jugadores[0].Cartas = new List<be.Carta>();
+            jugadores[1].Cartas = new List<be.Carta>();
+
             bll.Mazo mazo = new bll.Mazo(new be.Mazo());
 
 

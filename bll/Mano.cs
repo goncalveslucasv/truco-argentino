@@ -17,5 +17,21 @@ namespace bll
         }
 
 
+        public be.Jugador buscarJugador(be.Mano mano, be.Jugador jugadorBuscado)
+        {
+            foreach (be.Jugador jugador in mano.Jugadores)
+            {
+                if(jugador == jugadorBuscado)
+                {
+                    return jugador;
+                }
+
+            }
+            return jugadorBuscado;
+
+
+        }
+
+
     }
 }

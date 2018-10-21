@@ -45,6 +45,15 @@ namespace be
 
         }
 
+        private int manosGanadas;
+
+        public int ManosGanadas
+        {
+            get { return manosGanadas; }
+            set { manosGanadas = value; }
+        }
+
+
 
 
 

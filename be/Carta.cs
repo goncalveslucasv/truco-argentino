@@ -40,6 +40,10 @@ namespace be
             this.valor = Valor;
         }
 
+        public override string ToString()
+        {
+            return numero + " - " + palo;
+        }
 
 
     }

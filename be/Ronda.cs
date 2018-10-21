@@ -16,5 +16,14 @@ namespace be
             set { manos = value; }
         }
 
+        private int ultimaManoJugada = 0;
+
+        public int UltimaManoJugada
+        {
+            get { return ultimaManoJugada; }
+            set { ultimaManoJugada = value; }
+        }
+
+
     }
 }

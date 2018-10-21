@@ -17,6 +17,7 @@ namespace bll
         public void TirarCarta(be.Jugador jugador, be.Carta carta, be.Mano mano)
         {
             jugador.CartaJugada = carta;
+            jugador.Cartas.Remove(carta);
             mano.Jugadores.Add(jugador);
 
         }

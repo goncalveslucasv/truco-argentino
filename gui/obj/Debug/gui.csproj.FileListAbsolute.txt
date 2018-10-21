@@ -6,7 +6,9 @@ C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\bll.dll
 C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\be.pdb
 C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\bll.pdb
 C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.csprojResolveAssemblyReference.cache
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.Form1.resources
 C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.Properties.Resources.resources
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.TrucoUserController.resources
 C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.csproj.GenerateResource.cache
 C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.csproj.CoreCompileInputs.cache
 C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.csproj.CopyComplete
