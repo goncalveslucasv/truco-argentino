@@ -40,6 +40,11 @@ namespace be
             this.valor = Valor;
         }
 
+        public string getImageName()
+        {
+            return numero + (palo.Substring(0, 1).ToLower())+".jpg";
+        }
+
         public override string ToString()
         {
             return numero + " - " + palo;

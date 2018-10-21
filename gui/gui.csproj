@@ -98,43 +98,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="img\10c.jpg" />
-    <Content Include="img\10e.jpg" />
-    <Content Include="img\10o.jpg" />
-    <Content Include="img\11b.jpg" />
-    <Content Include="img\11c.jpg" />
-    <Content Include="img\11e.jpg" />
-    <Content Include="img\11o.jpg" />
-    <Content Include="img\12b.jpg" />
-    <Content Include="img\12c.jpg" />
-    <Content Include="img\12e.jpg" />
-    <Content Include="img\12o.jpg" />
-    <Content Include="img\1b.png" />
-    <Content Include="img\1c.jpg" />
-    <Content Include="img\1e.jpg" />
-    <Content Include="img\1o.jpg" />
-    <Content Include="img\2b.jpg" />
-    <Content Include="img\2c.jpg" />
-    <Content Include="img\2e.jpg" />
-    <Content Include="img\2o.jpg" />
-    <Content Include="img\3b.jpg" />
-    <Content Include="img\3c.jpg" />
-    <Content Include="img\3e.jpg" />
-    <Content Include="img\3o.jpg" />
-    <Content Include="img\4b.jpg" />
-    <Content Include="img\4c.jpg" />
-    <Content Include="img\4e.jpg" />
-    <Content Include="img\4o.jpg" />
-    <Content Include="img\5b.jpg" />
-    <Content Include="img\5c.jpg" />
-    <Content Include="img\5e.htm" />
-    <Content Include="img\5o.jpg" />
-    <Content Include="img\6b.jpg" />
-    <Content Include="img\6c.jpg" />
-    <Content Include="img\6e.jpg" />
-    <Content Include="img\6o.jpg" />
-    <Content Include="img\7e.jpg" />
-    <Content Include="img\7o.jpg" />
+    <Content Include="imagenes\10c.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

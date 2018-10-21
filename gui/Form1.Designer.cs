@@ -28,18 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox6 = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.listBox7 = new System.Windows.Forms.ListBox();
             this.listBox8 = new System.Windows.Forms.ListBox();
-            this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,24 +43,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.trucoUserController2 = new gui.TrucoUserController();
             this.trucoUserController1 = new gui.TrucoUserController();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(480, 447);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 0;
-            // 
-            // listBox6
-            // 
-            this.listBox6.FormattingEnabled = true;
-            this.listBox6.Location = new System.Drawing.Point(480, 33);
-            this.listBox6.Name = "listBox6";
-            this.listBox6.Size = new System.Drawing.Size(120, 95);
-            this.listBox6.TabIndex = 5;
             // 
             // textBox1
             // 
@@ -120,16 +102,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(480, 548);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(120, 23);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "Jugar carta";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // listBox7
             // 
             this.listBox7.FormattingEnabled = true;
@@ -145,16 +117,6 @@
             this.listBox8.Name = "listBox8";
             this.listBox8.Size = new System.Drawing.Size(120, 95);
             this.listBox8.TabIndex = 15;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(480, 4);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(120, 23);
-            this.button10.TabIndex = 20;
-            this.button10.Text = "Jugar carta";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
@@ -178,7 +140,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(694, 14);
+            this.label2.Location = new System.Drawing.Point(389, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 27;
@@ -196,7 +158,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(694, 33);
+            this.label4.Location = new System.Drawing.Point(389, 52);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 29;
@@ -214,24 +176,43 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(694, 55);
+            this.label6.Location = new System.Drawing.Point(389, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 31;
             this.label6.Text = "label6";
             // 
+            // trucoUserController2
+            // 
+            this.trucoUserController2.Location = new System.Drawing.Point(649, 12);
+            this.trucoUserController2.Name = "trucoUserController2";
+            this.trucoUserController2.Size = new System.Drawing.Size(465, 197);
+            this.trucoUserController2.TabIndex = 33;
+            // 
             // trucoUserController1
             // 
-            this.trucoUserController1.Location = new System.Drawing.Point(12, 271);
+            this.trucoUserController1.Location = new System.Drawing.Point(326, 577);
             this.trucoUserController1.Name = "trucoUserController1";
-            this.trucoUserController1.Size = new System.Drawing.Size(347, 254);
+            this.trucoUserController1.Size = new System.Drawing.Size(459, 193);
             this.trucoUserController1.TabIndex = 32;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(12, 199);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(126, 23);
+            this.button5.TabIndex = 34;
+            this.button5.Text = "Otra ronda";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 644);
+            this.ClientSize = new System.Drawing.Size(1319, 863);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.trucoUserController2);
             this.Controls.Add(this.trucoUserController1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -240,18 +221,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
             this.Controls.Add(this.listBox8);
             this.Controls.Add(this.listBox7);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox6);
-            this.Controls.Add(this.listBox1);
             this.Name = "Form1";
             this.Text = "Truco Argentino";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -262,19 +239,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ListBox listBox7;
         private System.Windows.Forms.ListBox listBox8;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -283,6 +255,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private TrucoUserController trucoUserController1;
+        private TrucoUserController trucoUserController2;
+        private System.Windows.Forms.Button button5;
     }
+    
 }
 

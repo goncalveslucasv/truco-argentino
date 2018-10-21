@@ -22,7 +22,7 @@ namespace gui
 
         List<be.Jugador> jugadores = new List<be.Jugador>();
 
-       
+
         public Form1()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace gui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text.Length > 0)
+            if (textBox1.Text.Length > 0)
             {
                 be.Jugador jugador = new be.Jugador(textBox1.Text);
                 jugadores.Add(jugador);
@@ -55,107 +55,103 @@ namespace gui
                 label1.Text = jugadores[0].Nombre;
                 label2.Text = jugadores[1].Nombre;
 
-                MessageBox.Show("Partida iniciada: "+partida.Jugadores[0].Nombre+ " vs "+ partida.Jugadores[1].Nombre);
+                MessageBox.Show("Partida iniciada: " + partida.Jugadores[0].Nombre + " vs " + partida.Jugadores[1].Nombre);
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             rondaServices.AsignarPartida(partida);
-            ronda = rondaServices.CrearRonda();
-            turno = turnoServices.cambiarTurno(new be.Turno(), jugadores[0]);
-            rondaServices.RepartirCartas(jugadores);
 
-            listBox1.Items.Clear();
-            listBox6.Items.Clear();
+            crearRonda();
 
-            listBox7.Items.Clear();
-            listBox8.Items.Clear();
+            this.EnlazarEventoUCartas();
 
-
-            this.AsignarCartas();
-
-
-            MessageBox.Show("Turno de: " + turno.Jugador.Nombre);
+            MessageBox.Show("Primera ronda - Turno de: " + turno.Jugador.Nombre);
 
         }
-
-        private void AsignarCartas()
-        {
-            listBox1.Items.Add(jugadores[0].Cartas[0]);
-            listBox1.Items.Add(jugadores[0].Cartas[1]);
-            listBox1.Items.Add(jugadores[0].Cartas[2]);
-
-            listBox6.Items.Add(jugadores[1].Cartas[0]);
-            listBox6.Items.Add(jugadores[1].Cartas[1]);
-            listBox6.Items.Add(jugadores[1].Cartas[2]);
-
-
-
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            bll.Jugador jugadorServices = new bll.Jugador(jugadores);
-
-            be.Carta carta = (be.Carta)listBox1.SelectedItem;
-            int index = partida.Rondas.Count - 1;
-            jugadorServices.TirarCarta(jugadores[0], carta, partida.Rondas[index].Manos[partida.Rondas[index].UltimaManoJugada]);
-            turnoServices.alternarTurno(turno, partida);
-
-
-
-            listBox7.Items.Add(jugadores[0].CartaJugada);
-            listBox1.Items.Remove(carta);
-            MessageBox.Show("Ahora es turno de: " + turno.Jugador.Nombre);
-
-        }
-
-  
 
      
 
-        private void button10_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
-            bll.Jugador jugadorServices = new bll.Jugador(jugadores);
+            crearRonda();
 
-            be.Carta carta = (be.Carta)listBox6.SelectedItem;
-            int index = partida.Rondas.Count - 1;
-            jugadorServices.TirarCarta(jugadores[1], carta, partida.Rondas[index].Manos[partida.Rondas[index].UltimaManoJugada]);
-            turnoServices.alternarTurno(turno, partida);
-
-            listBox8.Items.Add(jugadores[1].CartaJugada);
-            listBox6.Items.Remove(carta);
-            MessageBox.Show("Ahora es turno de: " + turno.Jugador.Nombre);
+            MessageBox.Show("Nueva ronda - Turno de: " + turno.Jugador.Nombre);
 
         }
 
+        private void crearRonda()
+        {
+            ronda = rondaServices.CrearRonda();
+            turno = turnoServices.cambiarTurno(new be.Turno(), jugadores[0]);
+            rondaServices.RepartirCartas(jugadores);
+            listBox7.Items.Clear();
+            listBox8.Items.Clear();
+            trucoUserController1.setCartas(jugadores[0]);
+            trucoUserController2.setCartas(jugadores[1]);
+            trucoUserController1.nuevaRonda();
+            trucoUserController2.nuevaRonda();
+        }
+
+        private void EnlazarEventoUCartas()
+        {
+            trucoUserController1.setCartas(jugadores[0]);
+            trucoUserController2.setCartas(jugadores[1]);
+
+            trucoUserController1.OnClick += tirarCarta;
+            trucoUserController2.OnClick += tirarCarta;
+        }
+
+        private void tirarCarta(TrucoUserController uController, be.Carta carta)
+        {
+            bll.Jugador jugadorServices = new bll.Jugador(jugadores);
+            //sacar esta responsabilidad del front
+
+            int index = partida.Rondas.Count - 1;
+            jugadorServices.TirarCarta(uController.Jugador, carta, partida.Rondas[index].Manos[partida.Rondas[index].UltimaManoJugada]);
+            //sacar esta responsabilidad del front
+
+            turnoServices.alternarTurno(turno, partida);
+
+            if(uController.Jugador == jugadores[0])
+            {
+                listBox7.Items.Add(jugadores[0].CartaJugada);
+            }
+            else
+            {
+                listBox8.Items.Add(jugadores[1].CartaJugada);
+            }
+            MessageBox.Show("Ahora es turno de: " + turno.Jugador.Nombre);
+        }
+
+    
         private void button11_Click(object sender, EventArgs e)
         {
+            //sacar esta responsabilidad del front
+
             int index = partida.Rondas.Count - 1;
-    
+
+            //sacar esta responsabilidad del front
 
             trucoServices.CompararMano(partida.Rondas[index].Manos[partida.Rondas[index].UltimaManoJugada], partida);
             label3.Text = "Manos Ganadas: "+ jugadores[0].ManosGanadas;
             label4.Text = "Manos Ganadas: "+ jugadores[1].ManosGanadas;
 
-            if (jugadores[0].Cartas.Count == 0 && jugadores[1].Cartas.Count == 0)
+            bll.Jugador jugadorServices = new bll.Jugador(jugadores);
+
+
+            if (jugadorServices.contarCartas(jugadores[0]) == 0 && jugadorServices.contarCartas(jugadores[1]) == 0)
             {
 
-                // sumar puntos de ronda aquí 
-                ronda = rondaServices.CrearRonda();
-                rondaServices.RepartirCartas(jugadores);
+                crearRonda();
+                //sacar esta responsabilidad del front
+
                 rondaServices.AsignarPuntos(jugadores);
 
-                listBox1.Items.Clear();
-                listBox6.Items.Clear();
-
-                listBox7.Items.Clear();
-                listBox8.Items.Clear();
-
-                this.AsignarCartas();
-
+                //sacar esta responsabilidad del front
+                jugadores[0].ManosGanadas = 0;
+                jugadores[1].ManosGanadas = 0;
 
                 label5.Text = "Puntaje: "+jugadores[0].Puntaje;
                 label6.Text = "Puntaje: "+jugadores[1].Puntaje;
@@ -170,5 +166,7 @@ namespace gui
         {
 
         }
+
+     
     }
 }
