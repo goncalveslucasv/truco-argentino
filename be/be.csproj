@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Carta.cs" />
+    <Compile Include="Envido.cs" />
     <Compile Include="Jugador.cs" />
     <Compile Include="Mano.cs" />
     <Compile Include="Mazo.cs" />

@@ -8,31 +8,38 @@ namespace bll
 {
     public class Truco
     {
+        private be.Turno turno;
 
-        public be.Partida IniciarJuego(List<be.Jugador> jugadores)
+        public be.Turno Turno { get; set; }
+        public be.Partida IniciarJuego(List<be.Jugador> jugadores, bll.Ronda rondaServices)
         {
-           be.Truco truco = new be.Truco();
-           return new be.Partida(jugadores);
+            be.Truco truco = new be.Truco();
+            be.Partida partida = new be.Partida(jugadores);
+            be.Turno turno = new be.Turno();
+            turno.Jugador = jugadores[0];
+            partida.Turno = turno;
+
+            rondaServices.AsignarPartida(partida);
+            rondaServices.CrearRonda();
+            rondaServices.RepartirCartas(jugadores);
+
+            return partida;
         }
 
-        public be.Mazo CrearMazo()
-        {
-            be.Mazo mazo = new be.Mazo();
-            return mazo;
-        }
-
-
+      
         public void CompararMano(be.Mano mano, be.Partida partida)
         {
             if(mano.Jugadores[0].CartaJugada.Valor < mano.Jugadores[1].CartaJugada.Valor)
             {
                 AsignarPuntos(mano.Jugadores[0]);
+                partida.Turno.Jugador = mano.Jugadores[0];
             }
             else
             {
                 AsignarPuntos(mano.Jugadores[1]);
-
+                partida.Turno.Jugador = mano.Jugadores[1];
             }
+
             partida.Rondas[partida.Rondas.Count() - 1].UltimaManoJugada++;
 
         }
@@ -42,15 +49,6 @@ namespace bll
 
         }
 
-        public be.Carta CompararCarta(be.Carta carta1, be.Carta carta2)
-        {
-            if(carta1.Valor < carta2.Valor)
-            {
-                return carta1;
-            } else
-            {
-                return carta2;
-            }
-        }
+  
     }
 }

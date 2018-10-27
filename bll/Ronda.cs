@@ -11,17 +11,31 @@ namespace bll
     {
         private be.Partida partida;
 
+        public be.Partida getPartida()
+        {
+            return partida;
+        }
+
+        private int rondaActual;
+
+        public int RondaActual
+        {
+            get { return partida.Rondas.Count - 1;  }
+        }
+
+
         public void AsignarPartida(be.Partida Partida)
         {
             partida = Partida;
-        }
+        }   
             
         public be.Ronda CrearRonda()
         {
             be.Ronda ronda = new be.Ronda();
             ronda.Manos = bll.Mano.crearManos();
             partida.Rondas.Add(ronda);
-
+            partida.Jugadores[0].CartaJugada = null;
+            partida.Jugadores[1].CartaJugada = null;
             return ronda;
         }
 
@@ -35,6 +49,24 @@ namespace bll
                 jugadores[1].Puntaje = jugadores[0].Puntaje + 1;
 
             }
+        }
+        public void nuevaRonda()
+        {
+            this.CrearRonda();
+            this.RepartirCartas(partida.Jugadores);
+        }
+
+        public void alternarTurno()
+        {
+            if (partida.Turno.Jugador == partida.Jugadores[0])
+            {
+                partida.Turno.Jugador = partida.Jugadores[1];
+            }
+            else
+            {
+                partida.Turno.Jugador = partida.Jugadores[0];
+            }
+
         }
 
         public void RepartirCartas(List<be.Jugador> jugadores)

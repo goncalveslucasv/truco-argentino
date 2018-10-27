@@ -15,6 +15,8 @@ namespace Test
         List<be.Jugador> jugadores = new List<be.Jugador>();
         be.Ronda ronda;
 
+        
+
         [TestMethod]
         public void IniciarPartidaDeTruco()
         {

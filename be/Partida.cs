@@ -31,6 +31,15 @@ namespace be
             this.jugadores = jugadores;
         }
 
+        private be.Turno turno;
+
+        public be.Turno Turno
+        {
+            get { return turno; }
+            set { turno = value; }
+        }
+
+
 
 
 

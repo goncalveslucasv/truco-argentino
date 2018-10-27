@@ -13,6 +13,7 @@ namespace bll
             return turno;
 
         }
+
         public void alternarTurno(be.Turno turno, be.Partida partida)
         {
             if (turno.Jugador == partida.Jugadores[0])

@@ -7,6 +7,8 @@ namespace bll
 {
     public class Mano
     {
+        public delegate void delOnClick(be.Carta uController, be.Carta carta);
+        public event delOnClick OnClick;
         public static List<be.Mano> crearManos()
         {
             List<be.Mano> manos = new List<be.Mano>();
@@ -16,19 +18,16 @@ namespace bll
             return manos;
         }
 
-
-        public be.Jugador buscarJugador(be.Mano mano, be.Jugador jugadorBuscado)
+        public bool manoCompleta(be.Mano mano, be.Partida partida)
         {
-            foreach (be.Jugador jugador in mano.Jugadores)
+            bll.Truco trucoServices = new bll.Truco();
+            if(mano.Jugadores.Count == 2)
             {
-                if(jugador == jugadorBuscado)
-                {
-                    return jugador;
-                }
+                trucoServices.CompararMano(mano, partida);
+                return true;
 
             }
-            return jugadorBuscado;
-
+            return false;
 
         }
 
