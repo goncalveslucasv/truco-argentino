@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace be
 {
-    public class Envido : IEnvido
+    public class RealEnvido : IEnvido
     {
         
       
         private int puntos;
 
       
-        private int valor = 2;
+        private int valor = 4;
 
         public int Valor()
         {

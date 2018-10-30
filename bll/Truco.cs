@@ -43,6 +43,7 @@ namespace bll
             partida.Rondas[partida.Rondas.Count() - 1].UltimaManoJugada++;
 
         }
+        
         private void AsignarPuntos(be.Jugador jugador)
         {
             jugador.ManosGanadas++;

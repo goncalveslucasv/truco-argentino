@@ -17,6 +17,7 @@ namespace gui
         bll.Turno turnoServices = new bll.Turno();
         bll.Mano manoServices = new bll.Mano();
         bll.Truco trucoServices = new bll.Truco();
+        bll.Envido envidoServices = new bll.Envido();
         uMesa umesa;
 
         List<be.Jugador> jugadores = new List<be.Jugador>(); 
@@ -140,9 +141,6 @@ namespace gui
             this.trucoUserControlNuevaRonda();
             rondaServices.AsignarPuntos(jugadores);
 
-            jugadores[0].ManosGanadas = 0;
-            jugadores[1].ManosGanadas = 0;
-
             label5.Text = "Puntaje: " + jugadores[0].Puntaje;
             label6.Text = "Puntaje: " + jugadores[1].Puntaje;
 
@@ -150,5 +148,100 @@ namespace gui
             label4.Text = "Manos Ganadas: 0";
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            be.Envido envido = new be.Envido();
+            cantarEnvido(envido);
+        }
+
+        private void cantarEnvido(be.IEnvido ienvido)
+        {
+            try
+            {
+                if ((jugadores[1].ManosGanadas != 0 || jugadores[0].ManosGanadas != 0) || jugadores[0].Envido != null)
+                {
+                    throw new Exception("Envido solo en primera ronda o ya se canto.");
+                }
+
+                envidoServices.contarEnvido(jugadores);
+                DialogResult dialogResult = MessageBox.Show(partida.Turno.Jugador.Nombre + " Te canto envido!", "Envido!", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    int envidoRespuesta = envidoServices.envidoAceptado(partida.Turno.Jugador, ienvido);
+                    MessageBox.Show("Tengo: " + envidoRespuesta);
+                    if (partida.Turno.Jugador.Envido.getPuntos() >= envidoRespuesta)
+                    {
+                        MessageBox.Show(partida.Turno.Jugador.Envido.getPuntos() + " son mejores!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Son buenas!");
+                    }
+                }
+                else
+                {
+                    envidoServices.envidoNoQuerido(partida.Turno.Jugador);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        // Irse al mazo
+        private void button5_Click(object sender, EventArgs e)
+        {
+            rondaServices.nuevaRonda();
+            this.trucoUserControlNuevaRonda();
+            rondaServices.seFueAlMazo(partida.Turno.Jugador, partida);
+
+            label5.Text = "Puntaje: " + jugadores[0].Puntaje;
+            label6.Text = "Puntaje: " + jugadores[1].Puntaje;
+
+            label3.Text = "Manos Ganadas: 0";
+            label4.Text = "Manos Ganadas: 0";
+
+            bloquearCartasPorTurno();
+
+            MessageBox.Show(partida.Turno.Jugador.Nombre + " se fue al mazo");
+
+
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            be.RealEnvido envido = new be.RealEnvido();
+            cantarEnvido(envido);
+        }
+
+        // cantar truco
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show(partida.Turno.Jugador.Nombre + " Te canto truco!", "Truco!", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+               
+            }
+            else
+            {
+                partida.Turno.Jugador.ManosGanadas = 99;
+                rondaServices.AsignarPuntos(partida.Jugadores);
+
+                rondaServices.nuevaRonda();
+                this.trucoUserControlNuevaRonda();
+                bloquearCartasPorTurno();
+      
+
+                label5.Text = "Puntaje: " + jugadores[0].Puntaje;
+                label6.Text = "Puntaje: " + jugadores[1].Puntaje;
+
+                label3.Text = "Manos Ganadas: 0";
+                label4.Text = "Manos Ganadas: 0";
+
+            }
+        }
     }
 }

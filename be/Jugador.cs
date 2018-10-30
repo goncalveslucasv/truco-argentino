@@ -53,6 +53,14 @@ namespace be
             set { manosGanadas = value; }
         }
 
+        private be.IEnvido envido;
+
+        public be.IEnvido Envido
+        {
+            get { return envido; }
+            set { envido = value; }
+        }
+
 
 
 

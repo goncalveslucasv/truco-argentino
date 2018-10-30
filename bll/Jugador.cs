@@ -37,6 +37,8 @@ namespace bll
             return 0;
         }
 
+        
+
         public void TirarCarta(be.Jugador jugador, be.Carta carta, bll.Ronda rondaServices)
         {
             be.Partida partida = rondaServices.getPartida();
