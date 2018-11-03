@@ -20,6 +20,11 @@ namespace be
             return valor;
         }
 
+        public void setValor(int Valor)
+        {
+            valor = 2;
+        }
+
         public int getPuntos()
         {
             return puntos;

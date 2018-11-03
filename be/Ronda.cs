@@ -8,6 +8,10 @@ namespace be
 {
     public class Ronda
     {   
+        public Ronda()
+        {
+            valor = 1;
+        }
         private List<be.Mano> manos;
 
         public List<be.Mano> Manos
@@ -23,6 +27,15 @@ namespace be
             get { return ultimaManoJugada; }
             set { ultimaManoJugada = value; }
         }
+
+        private int valor;
+
+        public int Valor
+        {
+            get { return valor; }
+            set { valor = value; }
+        }
+
 
 
     }

@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace be
 {
-
-    public class Truco : ITruco
+    public class ReTruco : Truco, ITruco
     {
-        const int PUNTOS_QUERIDOS = 2;
-        const int PUNTOS_NO_QUERIDOS = 1;
+        const int PUNTOS_QUERIDOS = 3;
+        const int PUNTOS_NO_QUERIDOS = 2;
 
         private int puntosQueridos;
 

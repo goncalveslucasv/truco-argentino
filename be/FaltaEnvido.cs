@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace be
 {
-    public class RealEnvido : IEnvido
+    public class FaltaEnvido : IEnvido
     {
 
 
         private int puntos;
 
 
-        private int valor = 4;
+        private int valor;
 
-        public void setValor(int valor)
-        {
-            valor = 4;
-        }
         public int Valor()
         {
             return valor;
+        }
+        public void setValor(int Valor)
+        {
+            valor = Valor;
         }
 
         public int getPuntos()

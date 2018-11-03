@@ -47,6 +47,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.trucoUserController2 = new gui.TrucoUserController();
             this.trucoUserController1 = new gui.TrucoUserController();
             this.groupBox1.SuspendLayout();
@@ -166,7 +169,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1130, 330);
+            this.button1.Location = new System.Drawing.Point(1130, 209);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 30);
             this.button1.TabIndex = 38;
@@ -176,7 +179,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(997, 280);
+            this.button2.Location = new System.Drawing.Point(1009, 209);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(105, 30);
             this.button2.TabIndex = 39;
@@ -186,12 +189,13 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(997, 330);
+            this.button4.Location = new System.Drawing.Point(1130, 335);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(105, 30);
             this.button4.TabIndex = 40;
             this.button4.Text = "Flor";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -229,13 +233,43 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(1130, 280);
+            this.button6.Location = new System.Drawing.Point(1130, 245);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(105, 30);
             this.button6.TabIndex = 44;
             this.button6.Text = "Real Envido";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(1130, 280);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(105, 29);
+            this.button7.TabIndex = 45;
+            this.button7.Text = "Falta Envido";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(1009, 245);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(105, 30);
+            this.button8.TabIndex = 46;
+            this.button8.Text = "Re Truco";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(1009, 281);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(105, 28);
+            this.button9.TabIndex = 47;
+            this.button9.Text = "Vale Cuatro";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // trucoUserController2
             // 
@@ -260,6 +294,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 881);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -271,7 +308,7 @@
             this.Controls.Add(this.trucoUserController2);
             this.Controls.Add(this.trucoUserController1);
             this.Name = "Form1";
-            this.Text = "J";
+            this.Text = "Truco";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -305,6 +342,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
     
 }

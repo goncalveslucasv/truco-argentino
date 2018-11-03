@@ -48,14 +48,14 @@ namespace bll
             partida.Jugadores[1].Envido = null;
         }
 
-        public void AsignarPuntos(List<be.Jugador> jugadores)
+        public void AsignarPuntos(List<be.Jugador> jugadores, int puntos)
         {
             if (jugadores[0].ManosGanadas > jugadores[1].ManosGanadas)
             {
-                jugadores[0].Puntaje = jugadores[0].Puntaje + 1;
+                jugadores[0].Puntaje = jugadores[0].Puntaje + puntos;
             } else
             {
-                jugadores[1].Puntaje = jugadores[1].Puntaje + 1;
+                jugadores[1].Puntaje = jugadores[1].Puntaje + puntos;
 
             }
         }

@@ -16,8 +16,6 @@ namespace be
             set { rondas = value; }
         }
 
-
-
         private List<be.Jugador> jugadores;
 
         public List<be.Jugador> Jugadores
@@ -38,6 +36,8 @@ namespace be
             get { return turno; }
             set { turno = value; }
         }
+
+      
 
 
 

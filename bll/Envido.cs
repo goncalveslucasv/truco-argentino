@@ -41,12 +41,28 @@ namespace bll
                 jugador.Envido = envido;
             }
         }
+        private int faltaEnvidoPuntos(be.Jugador jugador)
+        {
+            return (jugador.Puntaje < 15) ? 15 - jugador.Puntaje : 30 - jugador.Puntaje;
+        }
+        public bool calcularFlor(be.Jugador jugador)
+        {
+            if (jugador.Cartas[0].palo == jugador.Cartas[1].palo &&
+                jugador.Cartas[0].palo == jugador.Cartas[2].palo &&
+                jugador.Cartas[1].palo == jugador.Cartas[2].palo)
+            {
+                jugador.Puntaje = jugador.Puntaje + 3;
+                return true;
+            }
+
+            return false;
+        }
         private void envidoGanador(be.IEnvido envido)
         {
             be.Jugador jugador = jugadorGanador();
+            envido.setValor(faltaEnvidoPuntos(jugador));
             jugador.Puntaje = jugador.Puntaje + envido.Valor();
         }
-
         private be.Jugador jugadorGanador()
         {
             return (Jugadores[0].Envido.getPuntos() > Jugadores[1].Envido.getPuntos()) ? Jugadores[0] : Jugadores[1];

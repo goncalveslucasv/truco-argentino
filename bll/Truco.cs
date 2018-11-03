@@ -26,6 +26,34 @@ namespace bll
             return partida;
         }
 
+        public be.Jugador jugadorContrario(be.Jugador Jugador, List<be.Jugador> Jugadores)
+        {
+            foreach (be.Jugador jugador in Jugadores)
+            {
+                if (jugador != Jugador)
+                {
+                    return jugador;
+                }
+            }
+            return Jugador;
+
+        }
+        public be.Truco TrucoCantable()
+        {
+            be.Truco truco = new be.Truco();
+            truco.nombre = "Truco";
+            be.ReTruco retruco = new be.ReTruco();
+            retruco.nombre = "ReTruco";
+            be.ValeCuatro valeCuatro = new be.ValeCuatro();
+            valeCuatro.nombre = "Vale Cuatro";
+            retruco.reCantar = valeCuatro;
+
+            truco.reCantar = retruco;
+
+
+            return truco;
+        }
+
       
         public void CompararMano(be.Mano mano, be.Partida partida)
         {

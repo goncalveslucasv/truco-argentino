@@ -57,3 +57,4 @@ C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\imagenes\7e.jpg
 C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\imagenes\7o.jpg
 C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\imagenes\back.jpg
 C:\Users\casVicente.Goncalves\Desktop\Truco\gui\bin\Debug\imagenes\lock.png
+C:\Users\casVicente.Goncalves\Desktop\Truco\gui\obj\Debug\gui.frmTruco.resources

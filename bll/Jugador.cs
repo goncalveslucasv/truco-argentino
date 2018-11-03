@@ -37,7 +37,8 @@ namespace bll
             return 0;
         }
 
-        
+
+
 
         public void TirarCarta(be.Jugador jugador, be.Carta carta, bll.Ronda rondaServices)
         {
@@ -49,7 +50,7 @@ namespace bll
 
             int indice = jugador.Cartas.IndexOf(carta);
             jugador.Cartas[indice] = null;
-            mano.Jugadores.Add(jugador);
+            mano.Jugadores.Add(jugador);    
 
             bll.Mano manoServices = new bll.Mano();
             manoServices.manoCompleta(mano, partida);

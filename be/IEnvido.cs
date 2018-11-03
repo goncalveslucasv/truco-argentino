@@ -10,8 +10,8 @@ namespace be
     {
         int getPuntos();
         void setPuntos(int puntos);
-
+        void setValor(int puntos);
         int Valor();
-       
+
     }
 }
